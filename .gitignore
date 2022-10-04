@@ -1,2 +1,5 @@
 node_modules
 coverage
+jest-html-reporters-attach
+jest-html-reporters-attach/report/result.js
+jest-html-reporters-attach/report/index.js
