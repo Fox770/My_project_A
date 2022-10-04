@@ -31,11 +31,13 @@ jobs:
       
       - name: Upload artifact
         uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: testsReport
-          if-no-files-found: error
-          path: jest_html_reporters.html
-          
+          path: |
+            report.html
+            jest-html-reporters-attach/report
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
