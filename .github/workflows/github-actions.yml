@@ -1,48 +1,48 @@
-# name: Tests 
+name: Tests 
 
-# on: [push]
+on: [push]
 
-# permissions:
-#   contents: read
-#   pages: write
-#   id-token: write
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-# jobs:
-#   test:
-#     environment:
-#       name: github-pages
-#       url: ${{ steps.deployment.outputs.page_url }}
+jobs:
+  test:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v3
-#       - uses: actions/setup-node@v2
-#         with:
-#           node-version: 16
-#           cache: npm
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: npm
 
-#       - name: Setup Pages
-#         uses: actions/configure-pages@v2
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
 
-#       - run: npm install
-#       - run: npm test
+      - run: npm install
+      - run: npm test
       
-#       - name: Upload artifact
-#         uses: actions/upload-artifact@v3
-#         if: always()
-#         with:
-#           name: testsReport
-#           path: |
-#             report.html
-#             jest-html-reporters-attach/report
-#       - name: Deploy to GitHub Pages
-#         uses: JamesIves/github-pages-deploy-action@v4
-#         with:
-#           folder: .
-#           clean: true
-#           token: ${{ secrets.TOKEN }}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: testsReport
+          path: |
+            report.html
+            jest-html-reporters-attach/report
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .
+          clean: true
+          token: ${{ secrets.TOKEN }}
 
-#       - name: Send report via telegram bot
-#         run: "curl -X POST https://api.telegram.org/bot${{secrets.BOT_TOKEN}}/sendMessage -H \"Content-Type: application/json\" -d '{\"chat_id\": \"${{secrets.CHAT_ID}}\", \"text\": \"Report link is: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}\"}'"
+      - name: Send report via telegram bot
+        run: "curl -X POST https://api.telegram.org/bot${{secrets.BOT_TOKEN}}/sendMessage -H \"Content-Type: application/json\" -d '{\"chat_id\": \"${{secrets.CHAT_ID}}\", \"text\": \"Report link is: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}\"}'"
