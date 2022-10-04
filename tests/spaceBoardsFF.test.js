@@ -1,4 +1,4 @@
-import BuildBoard, { updatedBoard, newBoard, boardByTariff } from '../framework_api/fixtures/newBoard';
+import BuildBoard, { updatedBoard, newBoard, boardByTariff } from '../framework_api/fixtures/builder/newBoard';
 import SpaceBoard from '../src/spaceBoardsFF';
 
 describe('Testing Space Boards in FlowFast Developers API', () => {
