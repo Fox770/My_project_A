@@ -12,7 +12,7 @@ export default {
         field.type(comment)
         return this
       },
-    clickSendBtn() {
+    sendBtn() {
         return cy.get('[data-test="save-comment-btn"]').click() 
       }
 }  

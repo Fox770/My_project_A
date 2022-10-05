@@ -6,7 +6,7 @@ export default {
         field.contains(name)
         return this
     },
-    clickAddButton() {
+    addButton() {
         return cy.get('[data-test="create-new"]').click({force: true})
     },
     addColumn() {
@@ -23,7 +23,7 @@ export default {
         field.type(name)
         return this
     },
-    clickCreateBtn() {
+    createBtn() {
         return cy.get('[data-testid="save-title"]').click()
     },
 

@@ -13,7 +13,7 @@ export default {
         field.type(name)
         return this
     },
-    clickCreateBtn() {
+    createBtn() {
         return cy.get('[title="Create"] > .MuiIconButton-label > .MuiSvgIcon-root').click()
     }
 }    

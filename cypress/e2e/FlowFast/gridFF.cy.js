@@ -13,7 +13,7 @@ describe('Grid Space page', () => {
     app.page.GridPage.visit()
     app.page.GridPage.getCreateCard('Create card')
     app.page.GridPage.addCardTitle('Project')
-    app.page.GridPage.clickCreateBtn()
+    app.page.GridPage.createBtn()
     cy.get('[style]').contains('Project')
     cy.url().should('eq', 'https://fox770test.flowfast.io/space/69428/grid')
    })
