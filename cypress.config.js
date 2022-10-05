@@ -6,7 +6,7 @@ module.exports = {
       config.env = process.env
       return config
     },
-  defaultCommandTimeout: 30000,
+  defaultCommandTimeout: 50000,
   viewportWidth: 1350,
   viewportHeight: 600,
   },

@@ -12,7 +12,7 @@ describe('Main Space page', () => {
   it('Add column to Main board', () => { 
     app.page.MainPage.visit()
     app.element.BoardsWrapper.getBoard('Main board') 
-    app.element.BoardsWrapper.clickAddButton()
+    app.element.BoardsWrapper.addButton()
     app.element.BoardsWrapper.addColumn()
     cy.get('h2').contains('Create column')
     
@@ -20,14 +20,14 @@ describe('Main Space page', () => {
     cy.get('label').contains("Column's name")
 
     app.element.BoardsWrapper.fillColumnName('Repeat')
-    app.element.BoardsWrapper.clickCreateBtn()
+    app.element.BoardsWrapper.createBtn()
     cy.wait(2000)
     cy.get('[data-test="column-title"]').contains('Repeat')
    }),
 
    it('Create Card by "Add" button', () => { 
     app.page.MainPage.visit()
-    app.element.AddButton.clickBtnOnTop('Add')
+    app.element.AddButton.buttonOnTop('Add')
     app.element.AddButton.createItem('Card')
     app.element.AddButton.addCardTitle('Hollywood card')
     app.element.AddButton.clickBtn('Create')
@@ -38,21 +38,19 @@ describe('Main Space page', () => {
    it('Leave comment in Card on Main board', () => { 
     app.page.MainPage.visit()
     app.element.EditCard.getBoardByTitle('Main board') 
-    app.element.EditCard.getCardById('#board-card-6168716')
+    app.element.EditCard.getCardById('#board-card-6169424')
     cy.get('[data-test-title]').contains('Kerwood card')
-    cy.wait(3000)
     app.element.EditCard.leaveComment('Need to do asap')
-    app.element.EditCard.clickSendBtn()
+    app.element.EditCard.sendBtn()
     cy.get('[data-test="card-comment"]').contains('[role="presentation"]', 'Need to do asap') 
-    cy.url().should('eq', 'https://fox770test.flowfast.io/space/69428/card/6168716')
+    cy.url().should('eq', 'https://fox770test.flowfast.io/space/69428/card/6169424')
    }),
 
    it('Open and close "Add lanes" popup on Main board', () => { 
     app.page.MainPage.visit()
     app.element.BoardsWrapper.getBoard('Main board') 
-    app.element.BoardsWrapper.clickAddButton()
+    app.element.BoardsWrapper.addButton()
     app.element.BoardsWrapper.chooseLanes('Add lane')
-    cy.wait(3000) 
     app.element.BoardsWrapper.clickBtn('Close')
     cy.get('[id="boardsContainer"]').should('not.have.value', 'Lanes')
    }),

@@ -1,7 +1,7 @@
 /**Add Button on header to create cards and boards in FlowFast.io*/
 
 export default {
-    clickBtnOnTop(name) {
+    buttonOnTop(name) {
       return cy.get('.MuiButton-outlinedPrimary').contains(name).click() 
     }, 
 
